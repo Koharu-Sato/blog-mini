@@ -1,0 +1,12 @@
+@import 'materialize';
+
+
+.nav-wrapper {
+  padding: 0 40px 0 60px;
+  @extend .teal, .lighten-2;
+}
+
+
+.container {
+  padding: 40px 0;
+}

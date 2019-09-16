@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>blog</title>
+    <%= csrf_meta_tags %>
+ 
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--レスポンシブデザインにするために追加-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+ 
+  <body>
+    <!--グローバルナビゲーションの配置-->
+    <nav class="">
+      <div class="nav-wrapper">
+        <%= link_to "Blog", root_path, class:"brand-logo"%>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <% if user_signed_in? %>
+          <li><%= link_to "new", new_article_path %></li>
+          <li><%= link_to "sign out", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+          <li><%= link_to "sign in", new_user_session_path %></li>
+          <li><%= link_to "sign up", new_user_registration_path %>/li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+     
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>

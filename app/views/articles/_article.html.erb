@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col s12 m12 hoverable">
+    <div class="card">
+      <div class="card-content black-text">
+          <span class="card-title"><%= article.title %></span>
+          <p><%= article.content %></p>
+      </div>
+      <div class="card-action">
+        <%= link_to "show", article_path(article.id), method: :get %>
+        <% if current_user && article.user_id == current_user.id %>
+        <%= link_to "edit", edit_article_path(article.id) %>
+        <%= link_to "delete", article_path(article.id), method: :delete %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

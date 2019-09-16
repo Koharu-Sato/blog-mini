@@ -1,0 +1,19 @@
+
+
+<div class="contents row">
+  <h3>Edit</h3>
+  <%= form_for @article do |f| %>
+    <div class="materialize-textarea col s6">
+      <%# <label for="icon_prefix2">Title</label> %>
+      <%= f.label :Title, class:"icon_prefix2" %>
+      <%= f.text_field :title, value: @article.title %>
+    </div>
+    <div class="materialize-textarea col s12">
+      <%# <label for="textarea1">Text</label> %>
+      <%= f.label :Text, class:"textarea1"%>
+      <%= f.text_area :content, value: @article.content %>
+    <div class="waves-effect waves-light btn">
+      <%= f.submit "Edit"%></div>
+    </div> 
+  <% end %>  
+</div>
