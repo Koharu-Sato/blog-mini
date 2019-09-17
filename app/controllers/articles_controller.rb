@@ -11,7 +11,6 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.create(title: create_params[:title], content: create_params[:content], user_id: current_user.id)
-    binding.pry
     if @article.save
       redirect_to root_path
     else
@@ -26,7 +25,6 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(id_params[:id])
     @article.update(article_params) if @article.user_id == current_user.id
-    raise @article.errors.to_s if @article.errors.present?
     if @article.update(article_params)
       redirect_to root_path
     else
